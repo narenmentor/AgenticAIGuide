@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agentic AI for Beginners</title>
+<style>
+:root{--sky:#38bdf8;--sky-d:#0284c7;--sky-dd:#075985;--sky-l:#e0f4ff;--ink:#0c2d48;--mute:#3f6785;--white:#fff}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Trebuchet MS","Segoe UI",system-ui,sans-serif;color:var(--ink);line-height:1.65;background:linear-gradient(180deg,#d9f1ff 0%,#eef9ff 40%,#d3eeff 100%);background-attachment:fixed}
+a{color:inherit}
+header.hero{position:relative;overflow:hidden;text-align:center;padding:72px 20px 64px;color:#fff;background:linear-gradient(160deg,#7dd3fc 0%,#0ea5e9 45%,#0369a1 100%)}
+header.hero::before{content:"";position:absolute;inset:0 0 50% 0;background:linear-gradient(180deg,rgba(255,255,255,.45),rgba(255,255,255,.05));border-radius:0 0 50% 50%/0 0 80px 80px}
+.hero>*{position:relative}
+.hero h1{font-size:clamp(2rem,6vw,3.6rem);line-height:1.1;text-shadow:0 2px 12px rgba(3,70,110,.4)}
+.hero p{max-width:640px;margin:16px auto 0;font-size:1.1rem;color:#f0faff}
+nav{position:sticky;top:0;z-index:5;display:flex;gap:6px;overflow-x:auto;padding:10px 14px;background:rgba(255,255,255,.75);backdrop-filter:blur(10px);border-bottom:1px solid rgba(2,132,199,.25)}
+nav a{white-space:nowrap;text-decoration:none;font-size:.88rem;padding:6px 13px;border-radius:99px;color:var(--sky-dd);background:linear-gradient(180deg,#fff,#d6f0ff);border:1px solid #9bd8f7}
+nav a:hover,nav a:focus-visible{background:linear-gradient(180deg,#38bdf8,#0284c7);color:#fff;outline:none}
+main{max-width:1000px;margin:0 auto;padding:10px 18px 40px}
+section{margin-top:40px}
+h2{font-size:1.7rem;color:var(--sky-dd);margin-bottom:6px}
+h2+.lead{color:var(--mute);margin-bottom:18px}
+h3{font-size:1.08rem;color:var(--sky-dd);margin-bottom:4px}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.card{position:relative;padding:18px;border-radius:18px;background:linear-gradient(180deg,#fff 0%,#e8f6ff 100%);border:1px solid #a9ddf8;box-shadow:0 8px 22px rgba(2,132,199,.15),inset 0 1px 0 #fff}
+.card.glass{background:linear-gradient(180deg,rgba(255,255,255,.95) 0%,rgba(255,255,255,.55) 48%,rgba(186,230,253,.6) 50%,rgba(224,244,255,.9) 100%)}
+.card p,.card li{font-size:.95rem}
+.card ul{padding-left:18px;margin-top:6px}
+.tag{display:inline-block;font-size:.75rem;padding:2px 10px;border-radius:99px;color:#fff;background:linear-gradient(180deg,#38bdf8,#0284c7);margin:2px 3px 2px 0}
+.callout{padding:16px 20px;border-radius:16px;color:#fff;background:linear-gradient(180deg,#38bdf8,#0369a1);box-shadow:0 8px 20px rgba(2,132,199,.3),inset 0 1px 0 rgba(255,255,255,.5)}
+.callout b{color:#fff}
+.diagram{padding:12px;border-radius:18px;background:#fff;border:1px solid #a9ddf8;box-shadow:0 8px 22px rgba(2,132,199,.15);overflow-x:auto}
+.diagram svg{display:block;min-width:640px;width:100%;height:auto}
+table{width:100%;border-collapse:collapse;font-size:.92rem;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 6px 18px rgba(2,132,199,.15)}
+th{background:linear-gradient(180deg,#38bdf8,#0284c7);color:#fff;text-align:left}
+th,td{padding:10px 12px;border-bottom:1px solid #d3eeff;vertical-align:top}
+.scroll{overflow-x:auto}
+pre{background:linear-gradient(180deg,#0b3a5b,#082f49);color:#d7f0ff;padding:16px;border-radius:14px;overflow-x:auto;font-size:.84rem;line-height:1.5;border:1px solid #38bdf8;margin:10px 0}
+code{font-family:Consolas,Menlo,monospace}
+p code,li code,td code{background:#d3eeff;padding:1px 6px;border-radius:6px;font-size:.88em}
+ol.steps{padding-left:22px}
+ol.steps li{margin:6px 0}
+footer{margin-top:30px;padding:26px 16px;text-align:center;color:#fff;font-weight:700;font-size:1.1rem;background:linear-gradient(180deg,#38bdf8 0%,#0284c7 55%,#075985 100%);box-shadow:inset 0 2px 0 rgba(255,255,255,.55)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <h1>Agentic AI for Beginners</h1>
+  <p>Learn how AI goes beyond answering questions to planning, using tools and finishing tasks, and build your first agent with free tools.</p>
+</header>
+
+<nav aria-label="Sections">
+  <a href="#what">What is it</a><a href="#need">Why we need it</a><a href="#concepts">Core concepts</a><a href="#where">Where it's used</a><a href="#examples">Examples</a><a href="#flow">Workflow</a><a href="#stack">Languages &amp; frameworks</a><a href="#code">Build with code</a><a href="#nocode">Build with no code</a><a href="#safety">Safety</a><a href="#path">Learning path</a>
+</nav>
+
+<main>
+
+<section id="what">
+  <h2>What is Agentic AI?</h2>
+  <p class="lead">A normal chatbot answers once. An AI agent is given a goal and keeps working until the goal is done.</p>
+  <div class="grid">
+    <div class="card glass"><h3>Chatbot (reactive)</h3><p>You ask, it replies. It cannot check a website, send an email or fix its own mistakes unless you do the next step.</p></div>
+    <div class="card glass"><h3>AI agent (goal-driven)</h3><p>You say "Find 5 competitors and email me a summary." It plans the steps, searches, reads, writes, sends, and checks the result.</p></div>
+  </div>
+  <p style="margin-top:14px" class="callout"><b>One-line definition:</b> Agentic AI = an LLM (the brain) + tools (the hands) + memory (the notebook) + a loop (think, act, observe, repeat).</p>
+</section>
+
+<section id="need">
+  <h2>Why do we need Agentic AI?</h2>
+  <p class="lead">Real work has many steps, many apps and many surprises. One prompt cannot cover that.</p>
+  <div class="grid">
+    <div class="card"><h3>Multi-step work</h3><p>Research, write, check, format and send is a chain. Agents handle the chain end to end.</p></div>
+    <div class="card"><h3>Fresh, real data</h3><p>LLMs have a knowledge cutoff. Agents call search, databases and APIs for current facts.</p></div>
+    <div class="card"><h3>Action, not just text</h3><p>Agents can create tickets, update sheets, book slots and run code.</p></div>
+    <div class="card"><h3>Self-correction</h3><p>If a step fails, an agent reads the error and tries another way.</p></div>
+    <div class="card"><h3>Time and cost savings</h3><p>Repetitive tasks run in the background so people focus on judgement and creativity.</p></div>
+    <div class="card"><h3>24/7 availability</h3><p>Support, monitoring and follow-ups continue outside working hours.</p></div>
+  </div>
+</section>
+
+<section id="concepts">
+  <h2>Essential concepts for beginners</h2>
+  <p class="lead">Learn these eight words and most agent tutorials will make sense.</p>
+  <div class="grid">
+    <div class="card glass"><h3>LLM</h3><p>The language model that reasons and writes (Llama, Gemini, GPT, Claude).</p></div>
+    <div class="card glass"><h3>Prompt / system prompt</h3><p>Instructions that define the agent's role, rules and tone.</p></div>
+    <div class="card glass"><h3>Tools</h3><p>Functions the agent may call: web search, calculator, email, database, code runner.</p></div>
+    <div class="card glass"><h3>Tool / function calling</h3><p>The model replies with "call this tool with these inputs". Your code runs it and returns the result.</p></div>
+    <div class="card glass"><h3>Memory</h3><p>Short-term: the current conversation. Long-term: saved notes or a vector database.</p></div>
+    <div class="card glass"><h3>Planning</h3><p>Breaking a goal into smaller steps and choosing the next one.</p></div>
+    <div class="card glass"><h3>RAG</h3><p>Retrieval-Augmented Generation: fetch relevant documents first, then answer from them.</p></div>
+    <div class="card glass"><h3>Multi-agent</h3><p>Several specialist agents (researcher, writer, reviewer) working together.</p></div>
+  </div>
+  <div class="card" style="margin-top:14px"><h3>Common agent patterns</h3>
+    <p><span class="tag">ReAct</span> reason, act, observe in a loop &nbsp; <span class="tag">Plan-and-execute</span> make a full plan, then run it &nbsp; <span class="tag">Reflection</span> the agent critiques and improves its own output &nbsp; <span class="tag">Human-in-the-loop</span> a person approves risky steps</p></div>
+</section>
+
+<section id="where">
+  <h2>Where is it needed? Scenarios</h2>
+  <p class="lead">Use an agent when the task has several steps, needs outside data or tools, and the path is not fully fixed.</p>
+  <div class="scroll"><table>
+    <tr><th>Area</th><th>Scenario</th><th>What the agent does</th></tr>
+    <tr><td>Customer support</td><td>Order status, refunds, FAQs</td><td>Looks up the order, checks policy, replies, escalates if unsure</td></tr>
+    <tr><td>Software testing</td><td>Regression checks</td><td>Reads requirements, writes test cases, runs them, reports failures</td></tr>
+    <tr><td>Data analytics</td><td>"Why did sales drop?"</td><td>Queries data, builds charts, explains findings</td></tr>
+    <tr><td>Marketing</td><td>Lead follow-up</td><td>Scores leads, drafts personal emails, updates the CRM</td></tr>
+    <tr><td>HR / recruiting</td><td>Resume screening</td><td>Matches resumes to a job, ranks them, schedules interviews</td></tr>
+    <tr><td>Education</td><td>Personal tutor</td><td>Checks the learner's level, gives practice, tracks progress</td></tr>
+    <tr><td>Personal productivity</td><td>Daily briefing</td><td>Reads calendar and email, summarizes the day, drafts replies</td></tr>
+  </table></div>
+  <p style="margin-top:12px"><b>Not a good fit:</b> a simple fixed rule ("if X then Y"), tasks needing 100% accuracy with no review, or very high-risk actions without human approval.</p>
+</section>
+
+<section id="examples">
+  <h2>Real-world examples</h2>
+  <div class="grid">
+    <div class="card glass"><h3>Coding agents</h3><p>Claude Code, GitHub Copilot agent mode and Cursor read a repository, edit files, run tests and fix errors.</p></div>
+    <div class="card glass"><h3>Research agents</h3><p>Deep-research tools search dozens of sources and produce a cited report.</p></div>
+    <div class="card glass"><h3>Support agents</h3><p>Chat assistants that resolve tickets by calling company systems.</p></div>
+    <div class="card glass"><h3>Browser agents</h3><p>Agents that click, scroll and fill forms on websites for you.</p></div>
+  </div>
+  <div class="card" style="margin-top:14px"><h3>Mini example: "Plan my learning week"</h3>
+    <ol class="steps"><li>Goal: "Prepare me for a Python interview in 7 days."</li><li>Agent plans: topics, daily time, practice questions.</li><li>Calls tools: calendar (find free slots), search (top questions), notes (save the plan).</li><li>Observes: Wednesday is busy, so it moves the session to Thursday.</li><li>Delivers the final schedule and sends a reminder.</li></ol></div>
+</section>
+
+<section id="flow">
+  <h2>Workflow diagram: how an agent works</h2>
+  <p class="lead">Every agent runs this loop until the goal is met or a step limit is reached.</p>
+  <div class="diagram">
+  <svg viewBox="0 0 760 330" role="img" aria-label="Agent loop: goal, think and plan, choose tool, act, observe, done or repeat">
+    <defs>
+      <linearGradient id="g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7dd3fc"/><stop offset=".5" stop-color="#0ea5e9"/><stop offset=".51" stop-color="#0284c7"/><stop offset="1" stop-color="#0369a1"/></linearGradient>
+      <linearGradient id="g2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#bae6fd"/></linearGradient>
+      <marker id="ar" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#075985"/></marker>
+    </defs>
+    <g font-family="Trebuchet MS,Segoe UI,sans-serif" font-size="15" text-anchor="middle">
+      <rect x="10" y="130" width="120" height="60" rx="30" fill="url(#g2)" stroke="#0284c7" stroke-width="2"/><text x="70" y="157" fill="#075985" font-weight="700">User goal</text><text x="70" y="177" fill="#3f6785" font-size="12">"Summarize news"</text>
+      <rect x="190" y="130" width="140" height="60" rx="14" fill="url(#g1)"/><text x="260" y="157" fill="#fff" font-weight="700">1. Think</text><text x="260" y="177" fill="#e0f4ff" font-size="12">LLM plans next step</text>
+      <rect x="390" y="130" width="140" height="60" rx="14" fill="url(#g1)"/><text x="460" y="157" fill="#fff" font-weight="700">2. Act</text><text x="460" y="177" fill="#e0f4ff" font-size="12">Call a tool / API</text>
+      <rect x="390" y="250" width="140" height="60" rx="14" fill="url(#g1)"/><text x="460" y="277" fill="#fff" font-weight="700">3. Observe</text><text x="460" y="297" fill="#e0f4ff" font-size="12">Read the result</text>
+      <rect x="190" y="250" width="140" height="60" rx="14" fill="url(#g2)" stroke="#0284c7" stroke-width="2"/><text x="260" y="277" fill="#075985" font-weight="700">Memory</text><text x="260" y="297" fill="#3f6785" font-size="12">Save what happened</text>
+      <rect x="590" y="130" width="150" height="60" rx="30" fill="url(#g2)" stroke="#0284c7" stroke-width="2"/><text x="665" y="157" fill="#075985" font-weight="700">Final answer</text><text x="665" y="177" fill="#3f6785" font-size="12">Goal achieved</text>
+      <rect x="390" y="10" width="140" height="60" rx="14" fill="url(#g2)" stroke="#0284c7" stroke-width="2"/><text x="460" y="37" fill="#075985" font-weight="700">Tools</text><text x="460" y="57" fill="#3f6785" font-size="12">Search, DB, email, code</text>
+    </g>
+    <g stroke="#075985" stroke-width="2.5" fill="none" marker-end="url(#ar)">
+      <path d="M130 160 H186"/><path d="M330 160 H386"/><path d="M460 190 V246"/><path d="M386 280 H334"/><path d="M260 246 V194"/><path d="M530 160 H586"/><path d="M460 70 V126" stroke-dasharray="5 4"/>
+    </g>
+    <text x="558" y="148" font-size="12" fill="#075985" text-anchor="middle" font-family="Trebuchet MS,sans-serif">done?</text>
+    <text x="226" y="224" font-size="12" fill="#075985" text-anchor="end" font-family="Trebuchet MS,sans-serif">not done: repeat</text>
+  </svg>
+  </div>
+  <p style="margin-top:10px">Always set a <b>maximum number of steps</b> so the loop cannot run forever.</p>
+</section>
+
+<section id="stack">
+  <h2>Programming languages and frameworks</h2>
+  <div class="grid">
+    <div class="card glass"><h3>Languages</h3><ul><li><b>Python</b>: best choice, most tutorials and libraries</li><li><b>JavaScript / TypeScript</b>: great for web apps and MERN developers</li><li><b>SQL</b>: agents often query databases</li></ul></div>
+    <div class="card glass"><h3>Beginner basics to know</h3><ul><li>Functions, dictionaries/JSON, loops</li><li>Calling REST APIs</li><li>Environment variables for API keys</li><li>Git and a terminal</li></ul></div>
+  </div>
+  <div class="scroll" style="margin-top:14px"><table>
+    <tr><th>Tool</th><th>Type</th><th>Good for</th></tr>
+    <tr><td>LangChain / LangGraph</td><td>Code (Python, JS)</td><td>Flexible agents and controlled multi-step graphs</td></tr>
+    <tr><td>CrewAI</td><td>Code (Python)</td><td>Teams of role-based agents, easy to read</td></tr>
+    <tr><td>AutoGen</td><td>Code (Python)</td><td>Multi-agent conversations</td></tr>
+    <tr><td>LlamaIndex</td><td>Code (Python, JS)</td><td>Agents over your own documents (RAG)</td></tr>
+    <tr><td>OpenAI Agents SDK / Google ADK</td><td>Code (Python)</td><td>Official agent toolkits from model providers</td></tr>
+    <tr><td>n8n, Flowise, Langflow</td><td>No-code / low-code</td><td>Drag-and-drop agents, fast prototypes</td></tr>
+    <tr><td>Ollama</td><td>Local model runner</td><td>Free LLMs on your own laptop</td></tr>
+    <tr><td>MCP (Model Context Protocol)</td><td>Standard</td><td>A common way to connect agents to tools and data</td></tr>
+  </table></div>
+</section>
+
+<section id="code">
+  <h2>Build a basic agent with code (free)</h2>
+  <p class="lead">We use <b>Ollama</b> to run a free model locally. No credit card and no API key are needed. Free hosted tiers such as Google AI Studio or Groq also work if your laptop is slow, but their limits and model names change, so check their current pages.</p>
+  <ol class="steps">
+    <li>Install Ollama from <code>ollama.com</code>, then run <code>ollama pull llama3.1</code> (any model that supports tools works).</li>
+    <li>Install Python 3.10+ and run <code>pip install ollama</code>.</li>
+    <li>Save the code below as <code>agent.py</code> and run <code>python agent.py</code>.</li>
+  </ol>
+<pre><code>import ollama
+from datetime import datetime
+
+# ---- 1. TOOLS: plain Python functions the agent may call ----
+def calculator(expression: str) -> str:
+    """Calculate a math expression such as 12*(3+4)."""
+    if not all(c in "0123456789+-*/(). " for c in expression):
+        return "Error: only numbers and + - * / ( ) allowed"
+    return str(eval(expression))   # demo only; fine because input is filtered
+
+def get_time() -> str:
+    """Return the current date and time."""
+    return datetime.now().strftime("%d %b %Y, %H:%M")
+
+TOOLS = {"calculator": calculator, "get_time": get_time}
+
+# ---- 2. THE AGENT LOOP: think, act, observe ----
+def run_agent(goal: str, max_steps: int = 5):
+    messages = [
+        {"role": "system", "content": "You are a helpful agent. Use tools when needed."},
+        {"role": "user", "content": goal},
+    ]
+    for step in range(max_steps):
+        reply = ollama.chat(model="llama3.1", messages=messages,
+                            tools=[calculator, get_time]).message
+        messages.append(reply)
+
+        if not reply.tool_calls:          # no tool needed, so we have the answer
+            return reply.content
+
+        for call in reply.tool_calls:     # run each requested tool
+            name = call.function.name
+            result = TOOLS[name](**call.function.arguments)
+            print(f"[step {step+1}] {name} -> {result}")
+            messages.append({"role": "tool", "tool_name": name,
+                             "content": str(result)})
+    return "Stopped: step limit reached."
+
+print(run_agent("What is today's date, and what is 18% of 2450?"))</code></pre>
+  <div class="card"><h3>What to notice</h3>
+    <ul><li>The <b>docstrings</b> tell the model what each tool does, so write them clearly.</li><li>The <b>for loop</b> is the agent's think, act, observe cycle.</li><li><b>max_steps</b> prevents endless loops.</li><li>Next upgrades: add a web-search tool, save messages to a file for memory, then move to LangGraph or CrewAI.</li></ul></div>
+</section>
+
+<section id="nocode">
+  <h2>Build a basic agent with no code (free)</h2>
+  <p class="lead">Example: an agent that reads a question, searches the web and replies. We use <b>n8n</b> (free self-hosted community edition; the cloud version has a trial) or <b>Flowise</b> (free, open source).</p>
+  <div class="grid">
+    <div class="card glass"><h3>Option A: n8n</h3>
+      <ol class="steps"><li>Open n8n and create a new workflow.</li><li>Add a <b>Chat Trigger</b> node.</li><li>Add an <b>AI Agent</b> node and connect it.</li><li>Under <b>Chat Model</b>, choose Ollama (local, free) or Google Gemini with a free API key from AI Studio.</li><li>Under <b>Memory</b>, add Window Buffer Memory.</li><li>Under <b>Tools</b>, add Calculator, Wikipedia or an HTTP Request tool.</li><li>Write the system message: "You are a helpful research assistant."</li><li>Click <b>Chat</b> and test.</li></ol></div>
+    <div class="card glass"><h3>Option B: Flowise</h3>
+      <ol class="steps"><li>Install with <code>npx flowise start</code> (needs Node.js).</li><li>Create a new <b>Agentflow</b> or Chatflow.</li><li>Drag in a Chat Model (Ollama or Gemini).</li><li>Add a Tool Agent, then attach Calculator and a search tool.</li><li>Add Buffer Memory.</li><li>Press the chat icon to test, and use <b>Embed</b> to put it on a website.</li></ol></div>
+  </div>
+  <div class="card" style="margin-top:14px"><h3>Other free no-code options</h3><p><span class="tag">Langflow</span><span class="tag">Dify</span><span class="tag">Google AI Studio</span><span class="tag">Zapier / Make free tiers</span></p><p>Free plans have usage limits, so check each tool's current pricing before building something important.</p></div>
+</section>
+
+<section id="safety">
+  <h2>Good habits and safety</h2>
+  <div class="grid">
+    <div class="card"><h3>Limit permissions</h3><p>Give the agent only the tools it truly needs. Prefer read-only access first.</p></div>
+    <div class="card"><h3>Human approval</h3><p>Ask for confirmation before sending emails, spending money or deleting data.</p></div>
+    <div class="card"><h3>Check the output</h3><p>Agents can be wrong and sound confident. Verify important facts.</p></div>
+    <div class="card"><h3>Protect secrets</h3><p>Never paste API keys into code you share. Use environment variables.</p></div>
+    <div class="card"><h3>Beware prompt injection</h3><p>Web pages or emails can contain hidden instructions. Treat tool output as data, not commands.</p></div>
+    <div class="card"><h3>Log and limit</h3><p>Record every step and set step and cost limits.</p></div>
+  </div>
+</section>
+
+<section id="path">
+  <h2>Your beginner learning path</h2>
+  <div class="card glass">
+    <ol class="steps">
+      <li>Learn Python basics: functions, JSON, APIs.</li>
+      <li>Practise prompting: roles, examples, output formats.</li>
+      <li>Build the single-tool agent above, then add 2 or 3 more tools.</li>
+      <li>Try a no-code agent in n8n or Flowise for a real task of your own.</li>
+      <li>Add memory and RAG over a few PDFs.</li>
+      <li>Learn LangGraph or CrewAI and build a two-agent team (researcher and writer).</li>
+      <li>Publish a small project on GitHub and share what you learned.</li>
+    </ol>
+  </div>
+</section>
+
+</main>
+
+<footer>Entri Coding Tamil</footer>
+</body>
+</html>
